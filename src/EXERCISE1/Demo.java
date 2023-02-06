@@ -8,7 +8,7 @@ public class Demo {
         b.visit("Sss");
         b.getUrls();
         String[] d= {"s","d"};
-        Browser a=new Browser(d);
+        Browser a=new Browser();
         a.getUrls();
 	}
 
