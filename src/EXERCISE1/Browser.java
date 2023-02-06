@@ -15,15 +15,13 @@ public class Browser {
 		no++;
 	}
 	
-	public Browser(String[] s){
-		if(no==0) {
-			urls=new ArrayList();			
-		}
+	public void Set(String[] s)
+        {
 		for(int i=0;i<s.length;i++) {
 			urls.add(s[i]);
 			//System.out.println(urls.get(i));
 		}			
-		no++;
+		
 	}
 	
     public void visit(String s) {
