@@ -9,7 +9,7 @@ public class Demo {
         b.getUrls();
         String[] d= {"s","d"};
         Browser a=new Browser();
-        a.Set(d);
+        a.setUrls(d);
         a.getUrls();
 	}
 
