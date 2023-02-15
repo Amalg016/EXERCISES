@@ -8,13 +8,14 @@ public class Browser {
    
 	public Browser()
 	{	
+		
 	}
 	
 	public void setUrls(String[] s)
     {
 		for(int i=0;i<s.length;i++) {
-			urls.add(s[i]);
-			}					
+			urls.add(s[i]);	
+		}					
 	}
 	
     public void visit(String s) {
