@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author amalg
- *
- */
-module EXERCISES {
-}
