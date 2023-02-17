@@ -37,17 +37,17 @@ class GoogleChrome extends Browser{
 
 	
 	//Can be overloaded this WAY   :)
-	public void setPermissions(Permission permissionFor,boolean isLocationAccessible) {
+	public void setPermissions(Permission permissionFor,boolean permission) {
 		
 		switch(permissionFor) {
 		case location:
-			this.isLocationAccessible=isLocationAccessible;
+			this.isLocationAccessible=permission;
 			break;
 		case camera:
-			this.isCameraAccessible=isCameraAccessible;
+			this.isCameraAccessible=permission;
 			break;
 		case microphone:
-			this.isMicroponeAccessible=isMicroponeAccessible;
+			this.isMicroponeAccessible=permission;
 			break;
 		}				
 	}
