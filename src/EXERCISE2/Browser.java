@@ -1,11 +1,11 @@
 package EXERCISE2;
 
+import java.util.ArrayList;
 
 enum Permission{location,camera,microphone};
 
 public class Browser {
 	
-//	static int chromesTabCount;
 	public Browser() {
 	
 
@@ -15,9 +15,6 @@ public class Browser {
 		System.out.println("Iam a Browser");
 	}
 	
-//	public static int getChromesTabCount() {
-//		return chromesTabCount;
-//	}
 }
 class GoogleChrome extends Browser{
 	
@@ -26,7 +23,6 @@ class GoogleChrome extends Browser{
 
 	public GoogleChrome() {
 		super();
-		//chromesTabCount++;
 	}
 	
 	@Override
@@ -83,7 +79,7 @@ class GoogleChrome extends Browser{
 	
 	
 	
-	//Overloading cant be used
+	//Overloading cant be used this way
 //	public void setPermissionForLocation(boolean isLocationAccessible) {
 //		this.isLocationAccessible=isLocationAccessible;
 //	}
@@ -117,6 +113,8 @@ class GoogleChrome extends Browser{
 	
 }
 class Firefox extends Browser implements MultipleAccountContainers{
+	ArrayList<String> containers=new ArrayList<String>();
+	
 	public Firefox() {
 		super();
 	}
@@ -127,11 +125,15 @@ class Firefox extends Browser implements MultipleAccountContainers{
 	}
 	
 	@Override
-	public void addContainer() {
-		
+	public void addContainer(String container) {
+	containers.add(container);	
 	}
 	@Override
-	public void leaveContainer() {
-		
+	public void leaveContainer(String container) {
+		for(String i:containers) {
+			if(i.equals(container)) {
+	          containers.remove(i);
+			}
+		}
 	}
 }
