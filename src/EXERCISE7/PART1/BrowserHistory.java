@@ -13,14 +13,14 @@ import java.util.Vector;
 
 public class BrowserHistory {
 
-	private Stack<String> stackUrl=new Stack<String>();
-	private ArrayList<String> arrayUrl=new ArrayList<String>();
-	private LinkedList<String> linkedUrl=new LinkedList<String>();
-	private Vector<String> vectorUrl=new Vector<String>();
+	private static Stack<String> stackUrl=new Stack<>();
+	private static ArrayList<String> arrayUrl=new ArrayList<>();
+	private static LinkedList<String> linkedUrl=new LinkedList<>();
+	private static Vector<String>vectorUrl=new Vector<>();
     
-	private HashSet<String> hashUrl = new HashSet<String>();
-	private LinkedHashSet<String> linkedHashUrl = new LinkedHashSet<String>();
-	private TreeSet<String> treeUrl = new TreeSet<String>();
+	private static HashSet<String> hashUrl = new HashSet<>();
+	private static LinkedHashSet<String> linkedHashUrl = new LinkedHashSet<>();
+	private static TreeSet<String> treeUrl = new TreeSet<>();
     
     public void visit(String url) {
 		stackUrl.add(url);

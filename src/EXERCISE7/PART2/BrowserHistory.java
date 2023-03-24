@@ -11,16 +11,16 @@ import java.util.TreeMap;
 
 public class BrowserHistory {
 
-    Map<String,List<String>> hashUrl=new HashMap<String,List<String>>();
-    Map<String,List<String>> treeUrl=new TreeMap<String,List<String>>();
-    Map<String,List<String>> linkedUrl=new LinkedHashMap<String,List<String>>();
+    Map<String,List<String>> hashUrl=new HashMap<>();
+    Map<String,List<String>> treeUrl=new TreeMap<>();
+    Map<String,List<String>> linkedUrl=new LinkedHashMap<>();
 
     public void visit(String url) {
 
-    	if(url.contains(".")) {		
-    		StringTokenizer tk=new StringTokenizer(url,".");
-		    tk.nextToken();
-		    String extension=tk.nextToken();
+    	String[] parts=url.split("[.]");
+    	if(parts.length > 1)
+    	{		 		
+		    String extension= parts[parts.length-1];
 		    if(hashUrl.containsKey(extension)) {
 		    	hashUrl.get(extension).add(url);
 		    	treeUrl.get(extension).add(url);
@@ -40,22 +40,13 @@ public class BrowserHistory {
     	}
     }
 	
-	public void deleteHistory(String url) {
-    	if(url.contains(".")) {		
-    		StringTokenizer tk=new StringTokenizer(url,".");
-    		  tk.nextToken();
-  		    String extension=tk.nextToken();
-             
-  		    if(hashUrl.containsKey(extension)) {
-  		    	List<String> list1=hashUrl.get(extension);
-  		    	List<String> list2=linkedUrl.get(extension);
-  		    	List<String> list3=treeUrl.get(extension);
-  		    
-  		    	list1.remove(url);
-  		    	list2.remove(url);
-  		    	list3.remove(url);
-  		    }  		    
-    	}	
+	public void deleteHistory(String extension) {       
+  		   
+		if(hashUrl.containsKey(extension)) { 
+			hashUrl.remove(extension);
+			treeUrl.remove(extension);
+			linkedUrl.remove(extension);
+		}  		     		
 	}
 	
 	public void fetchHistory(String extension) {
@@ -65,8 +56,8 @@ public class BrowserHistory {
 	}
 	
 	public void search(String searchWord) {
-		for( Entry i: hashUrl.entrySet()) {
-	    List<String> list=(List<String>) i.getValue();
+		for( Entry<String,List<String>> i: hashUrl.entrySet()) {
+	    List<String> list=i.getValue();
 		for(String j:list) {
 			if(j.contains(searchWord)) {
 				System.out.println(j);	    						
@@ -77,7 +68,7 @@ public class BrowserHistory {
 	}
 	
 	public void size(String extension) {
-		List list=hashUrl.get(extension);
+		List<String> list=hashUrl.get(extension);
 		if(list!=null) {
 			System.out.println(list.size());		
 		   return;
