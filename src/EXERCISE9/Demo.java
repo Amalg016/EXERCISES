@@ -15,7 +15,7 @@ public class Demo {
 	deleteHelper.join();
     tab.visit("google.com");
     
-    //Or we can use isAlive fn to check whether the or using synchronized methods  
+    //Or we can (use isAlive fn to check whether the thread is alive) or using synchronized methods or by synchronizing the list itself 
 	}
 
 }
@@ -38,3 +38,4 @@ class ReadHelper implements Runnable {
 	}
 	
 }
+
