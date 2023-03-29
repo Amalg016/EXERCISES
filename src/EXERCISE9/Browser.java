@@ -7,7 +7,8 @@ public class Browser {
 	static List<String> history=new ArrayList<>();
 
 	public void visit(String url) {
-		history.add(url);
+		System.out.println("Visting : "+url);
+		history.add(url);		
 	}
 	
 	public void delete() {
